@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PROJECT_DIR: maiomaria
+      PROJECT_DIR: .
 
     steps:
       - name: Checkout
