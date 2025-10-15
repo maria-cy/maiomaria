@@ -10,35 +10,43 @@ jobs:
   test-and-smoke:
     runs-on: ubuntu-latest
 
+    env:
+      PROJECT_DIR: maiomaria
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Install deps
         run: |
           python -m pip install --upgrade pip
-          pip install --upgrade scikit-learn   # force latest version
-          pip install -r requirements.txt
+          pip install -r "$PROJECT_DIR/requirements.txt"
 
       - name: Lint
-        run: flake8 .
+        run: flake8 "$PROJECT_DIR"
 
-      # Träna modellen FÖRE testerna
-      - name: Train model
+      - name: Train (capture metrics)
         run: |
-          mkdir -p app
-          python train.py
+          cd "$PROJECT_DIR"
+          python train.py | tee train.log
+          RMSE=$(grep -Po 'RMSE:\s*\K[0-9.]+' train.log)
+          echo "{\"rmse\": $RMSE, \"branch\": \"${GITHUB_REF_NAME}\"}" > ci-metrics.json
 
-      - name: Unit Tests
-        run: pytest
+      - name: Unit tests
+        run: |
+          cd "$PROJECT_DIR"
+          pytest -q
 
-      #  Ladda upp modellen som artefakt
-      - name: Upload model artifact
+      - name: Upload artifacts (model + logs)
         uses: actions/upload-artifact@v4
         with:
-          name: model-artifact
-          path: app/model.joblib
+          name: ci-artifacts-${{ github.run_id }}
+          path: |
+            ${{ env.PROJECT_DIR }}/app/model.joblib
+            ${{ env.PROJECT_DIR }}/train.log
+            ${{ env.PROJECT_DIR }}/ci-metrics.json
