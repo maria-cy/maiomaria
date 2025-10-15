@@ -29,15 +29,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 3. Träna modellen och spara metrics
+      # 3. Träna modellen och logga metrics
       - name: Train model and log metrics
         run: |
           python train.py | tee train.log
           RMSE=$(grep -Po 'RMSE:\s*\K[0-9.]+' train.log)
           echo "{\"rmse\": $RMSE, \"model_version\": \"${GITHUB_REF_NAME}\"}" > metrics.json
 
-      # 4. Ladda upp model och metrics som artifacts
-      - name: Upload metrics artifact
+      # 4. Ladda upp artifacts (modell + metrics)
+      - name: Upload model and metrics
         uses: actions/upload-artifact@v4
         with:
           name: metrics-${{ github.ref_name }}
@@ -54,13 +54,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # 6. Bygg Docker image med nytränad modell
+      # 6. Bygg Docker image
       - name: Build Docker image
         run: |
           IMAGE=ghcr.io/${{ github.repository }}:${{ github.ref_name }}
           docker build -t "$IMAGE" .
 
-      # 7. Smoke test för att säkerställa att containern funkar
+      # 7. Smoke test (kolla att containern funkar)
       - name: Smoke test container
         run: |
           IMAGE=ghcr.io/${{ github.repository }}:${{ github.ref_name }}
@@ -72,7 +72,7 @@ jobs:
             -d '{ "age": 0.02, "sex": -0.044, "bmi": 0.06, "bp": -0.03, "s1": -0.02, "s2": 0.03, "s3": -0.02, "s4": 0.02, "s5": 0.02, "s6": -0.001 }'
           docker rm -f app
 
-      # 8. Ladda upp Docker image till GHCR
+      # 8. Push Docker image till GHCR
       - name: Push Docker image
         run: |
           IMAGE=ghcr.io/${{ github.repository }}:${{ github.ref_name }}
