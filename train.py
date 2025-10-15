@@ -27,3 +27,9 @@ rmse = math.sqrt(mean_squared_error(y_test, y_pred))
 print(f"RMSE: {rmse:.2f}")
 
 joblib.dump({"model": model, "scaler": scaler}, "app/model.joblib")
+
+import json
+metrics = {"rmse": rmse}
+with open("metrics.json", "w") as f:
+    json.dump(metrics, f)
+
