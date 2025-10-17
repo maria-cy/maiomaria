@@ -6,18 +6,20 @@ The model and service are built, tested, and released automatically using GitHub
 
 # Project structure
 ```
+.
 ├─ .github/
-│ └─ workflows/ # GitHub Actions workflows
-│ ├─ ci.yml # Continuous Integration: lint, test, train, evaluate, upload artifacts
-│ └─ release.yml # Release pipeline: retrain, build, smoke test, push image to GHCR, create release
+│  └─ workflows/
+│     ├─ ci.yml
+│     └─ release.yml
 ├─ app/
-│ ├─ evaluate.py # Script for model evaluation (RMSE, precision, recall)
-│ └─ main.py # FastAPI application with /health and /predict endpoints
-├─ CHANGELOG.md # Version history with metrics and iteration improvements
-├─ Dockerfile # Docker build instructions for the FastAPI service
-├─ README.md # Project documentation (this file)
-├─ requirements.txt # Pinned dependencies for reproducible builds
-└─ train.py # Training script for baseline (v0.1) and improved model (v0.2)
+│  ├─ evaluate.py
+│  └─ main.py
+├─ CHANGELOG.md
+├─ Dockerfile
+├─ README.md
+├─ requirements.txt
+└─ train.py
+
 ```
 
 
