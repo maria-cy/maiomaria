@@ -35,7 +35,7 @@ Download Version 2:
 $ docker pull ghcr.io/maria-cy/maiomaria:v0.2
 ```
 
-Run command for version 2 (replace “v0.2” with “v0.1” to run version 1):
+Run command for version 2 (replace “v0.2” with “v0.1” to run version 1). Port used is 8000:
 ```
 $ docker run -d -p 8000:8000 ghcr.io/maria-cy/maiomaria:v0.2
 ```
