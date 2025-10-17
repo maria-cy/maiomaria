@@ -1,9 +1,16 @@
 # maiomaria (Virtual Diabetes Clinic Triage)
 
-```$ docker pull ghcr.io/maria-cy/maiomaria:v0.2
-
+Version 1:
+```
+$ docker pull ghcr.io/maria-cy/maiomaria:v0.2
+```
+Version 2:
+```
 `$ docker pull ghcr.io/maria-cy/maiomaria:v0.1`
+```
 
+Post method
+```
 $body = @{
     age = 0.02
     sex = -0.044
@@ -18,4 +25,9 @@ $body = @{
 } | ConvertTo-Json
 
 Invoke-RestMethod -Uri http://localhost:8000/predict -Method POST -ContentType "application/json" -Body $body
+```
+
+Get method:
+```
 Invoke-RestMethod -Uri http://localhost:8000/health -Method GET
+```
