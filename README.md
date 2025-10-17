@@ -1,5 +1,11 @@
 # maiomaria (Virtual Diabetes Clinic Triage)
 
+This repository contains an MLOps project for a **virtual diabetes clinic triage**.  
+It trains and serves a machine learning model that predicts short-term diabetes progression risk.  
+The model and service are built, tested, and released automatically using **GitHub Actions**.
+
+---
+
 Version 1:
 ```
 $ docker pull ghcr.io/maria-cy/maiomaria:v0.2
