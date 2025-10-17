@@ -22,28 +22,13 @@ The model and service are built, tested, and released automatically using GitHub
 
 ```
 
-
-#Contents
----
-- .github/workflows
-    - ci.yml
-    - release.yml 
-- app
-    - evaluate.py 
-    - main.py 
-- CHANGELOG.md
-- Dockerfile
-- README.md
-- requirements.txt
-- train.py
-
-#Commands
+# Commands
 ---
 Choose a version to use:
-$ docker pull ghcr.io/maria-cy/maiomaria:v0.1
+
 Download Version 1:
 ```
-
+$ docker pull ghcr.io/maria-cy/maiomaria:v0.1
 ```
 Download Version 2:
 ```
