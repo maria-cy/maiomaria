@@ -5,3 +5,5 @@
 - RMSE on held-out set reported
 - API with /predict and /health
 - Dockerized
+## v0.2
+
