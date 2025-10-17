@@ -21,14 +21,14 @@ The model and service are built, tested, and released automatically using GitHub
 #Commands
 ---
 Choose a version to use:
-
+$ docker pull ghcr.io/maria-cy/maiomaria:v0.1
 Download Version 1:
 ```
-$ docker pull ghcr.io/maria-cy/maiomaria:v0.2
+
 ```
 Download Version 2:
 ```
-$ docker pull ghcr.io/maria-cy/maiomaria:v0.1
+$ docker pull ghcr.io/maria-cy/maiomaria:v0.2
 ```
 
 Run command for version 2 (replace “v0.2” with “v0.1” to run version 1):
