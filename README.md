@@ -63,6 +63,7 @@ Invoke-RestMethod -Uri http://localhost:8000/health -Method GET
 
 # Project structure
 ---
+```
 .
 ├─ app/
 │  ├─ main.py           # FastAPI API
@@ -76,4 +77,5 @@ Invoke-RestMethod -Uri http://localhost:8000/health -Method GET
 └─ .github/workflows/
    ├─ ci.yml
    └─ release.yml
+```
 
