@@ -4,15 +4,36 @@ This repository contains an MLOps project for a **virtual diabetes clinic triage
 It trains and serves a machine learning model that predicts short-term diabetes progression risk.  
 The model and service are built, tested, and released automatically using GitHub Actions.
 
+#Contents
 ---
+- .github/workflows
+    - ci.yml
+    - release.yml 
+- app
+    - evaluate.py 
+    - main.py 
+- CHANGELOG.md
+- Dockerfile
+- README.md
+- requirements.txt
+- train.py
 
-Version 1:
+#Commands
+---
+Choose a version to use:
+
+Download Version 1:
 ```
 $ docker pull ghcr.io/maria-cy/maiomaria:v0.2
 ```
-Version 2:
+Download Version 2:
 ```
 $ docker pull ghcr.io/maria-cy/maiomaria:v0.1
+```
+
+Run command for version 2 (replace “v0.2” with “v0.1” to run version 1):
+```
+$ docker run -d -p 8000:8000 ghcr.io/maria-cy/maiomaria:v0.2
 ```
 
 Post method
@@ -39,7 +60,9 @@ Invoke-RestMethod -Uri http://localhost:8000/health -Method GET
 ```
 
 
+
 # Project structure
+---
 .
 ├─ app/
 │  ├─ main.py           # FastAPI API
