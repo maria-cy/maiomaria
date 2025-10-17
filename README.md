@@ -37,3 +37,20 @@ Get method:
 ```
 Invoke-RestMethod -Uri http://localhost:8000/health -Method GET
 ```
+
+
+# Project structure
+.
+├─ app/
+│  ├─ main.py           # FastAPI API
+│  ├─ evaluate.py       # Evaluation logic
+│  └─ model.joblib      # Saved model
+├─ train.py             # Training script
+├─ requirements.txt
+├─ Dockerfile
+├─ CHANGELOG.md
+├─ metrics.json
+└─ .github/workflows/
+   ├─ ci.yml
+   └─ release.yml
+
