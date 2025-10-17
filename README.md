@@ -4,6 +4,23 @@ This repository contains an MLOps project for a **virtual diabetes clinic triage
 It trains and serves a machine learning model that predicts short-term diabetes progression risk.  
 The model and service are built, tested, and released automatically using GitHub Actions.
 
+# Project structure
+```
+├─ .github/
+│ └─ workflows/
+│ ├─ ci.yml
+│ └─ release.yml
+├─ app/
+│ ├─ evaluate.py
+│ └─ main.py
+├─ CHANGELOG.md
+├─ Dockerfile
+├─ README.md
+├─ requirements.txt
+└─ train.py
+```
+
+
 #Contents
 ---
 - .github/workflows
@@ -60,21 +77,4 @@ Invoke-RestMethod -Uri http://localhost:8000/health -Method GET
 ```
 
 
-
-# Project structure
----
-```
-├─ app/
-│ ├─ main.py # FastAPI API
-│ ├─ evaluate.py # Evaluation logic
-│ └─ model.joblib # Saved model
-├─ train.py # Training script
-├─ requirements.txt
-├─ Dockerfile
-├─ CHANGELOG.md
-├─ metrics.json
-└─ .github/workflows/
-├─ ci.yml
-└─ release.yml
-```
 
