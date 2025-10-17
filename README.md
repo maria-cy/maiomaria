@@ -2,7 +2,7 @@
 
 This repository contains an MLOps project for a **virtual diabetes clinic triage**.  
 It trains and serves a machine learning model that predicts short-term diabetes progression risk.  
-The model and service are built, tested, and released automatically using **GitHub Actions**.
+The model and service are built, tested, and released automatically using GitHub Actions.
 
 ---
 
