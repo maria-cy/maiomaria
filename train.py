@@ -7,9 +7,9 @@ from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error, precision_score, recall_score
 import joblib
 import math
-import json
+import json 
 
-#  Version & seeds (för reproducerbarhet)
+#  Version & seeds för reproducerbarhet
 version = "v0.2"
 np.random.seed(42)
 random.seed(42)
