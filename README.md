@@ -4,7 +4,13 @@ This repository contains an MLOps project for a **virtual diabetes clinic triage
 It trains and serves a machine learning model that predicts short-term diabetes progression risk.  
 The model and service are built, tested, and released automatically using GitHub Actions.
 
+# Prerequisites
+---
+- Docker Desktop (Windows/macOS/Linux) – required to run service locally.
+- Github Actions (No installation needed) – workflows run automatically in the cloud on push/PR/tag.
+
 # Project structure
+---
 ```
 .
 ├─ .github/
