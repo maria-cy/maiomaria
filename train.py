@@ -14,7 +14,7 @@ version = "v0.2"
 np.random.seed(42)
 random.seed(42)
 
-# 1. Ladda data 
+# 1. Ladda data
 data = load_diabetes(as_frame=True)
 X = data.frame.drop(columns=["target"])
 y = data.frame["target"]
