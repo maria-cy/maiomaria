@@ -6,7 +6,7 @@ $ docker pull ghcr.io/maria-cy/maiomaria:v0.2
 ```
 Version 2:
 ```
-`$ docker pull ghcr.io/maria-cy/maiomaria:v0.1`
+$ docker pull ghcr.io/maria-cy/maiomaria:v0.1
 ```
 
 Post method
