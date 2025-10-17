@@ -30,6 +30,7 @@ The model and service are built, tested, and released automatically using GitHub
 
 # Commands
 ---
+(All commands were written using Powershell)
 Choose a version to use:
 
 Download Version 1:
