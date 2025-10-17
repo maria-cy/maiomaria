@@ -31,18 +31,18 @@ The model and service are built, tested, and released automatically using GitHub
 # Commands
 ---
 (All commands were written using Powershell)
-Choose a version to use:
+Choose an iteration to use:
 
-Download Version 1:
+Download Iteration 1:
 ```
 $ docker pull ghcr.io/maria-cy/maiomaria:v0.1
 ```
-Download Version 2:
+Download Iteration 2:
 ```
 $ docker pull ghcr.io/maria-cy/maiomaria:v0.2
 ```
 
-Run command for version 2 (replace “v0.2” with “v0.1” to run version 1). Port used is 8000:
+Run command for version 2 (replace “v0.2” with “v0.1” to run iteration 1). Port used is 8000:
 ```
 $ docker run -d -p 8000:8000 ghcr.io/maria-cy/maiomaria:v0.2
 ```
