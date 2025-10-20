@@ -69,11 +69,3 @@ metrics = {
 
 with open("metrics.json", "w", encoding="utf-8") as f:
     json.dump(metrics, f, indent=2)
-
-#  Uppdatera CHANGELOG
-with open("CHANGELOG.md", "a", encoding="utf-8") as f:
-    f.write("\n## v0.2\n")
-    f.write("- Improved model: Ridge Regression (alpha=1.0)\n")
-    f.write(f"- RMSE: {rmse:.2f}\n")
-    f.write(f"- Precision (high-risk): {precision:.2f}\n")
-    f.write(f"- Recall (high-risk): {recall:.2f}\n")
