@@ -27,28 +27,27 @@ jobs:
       - name: Lint
         run: flake8 .
 
-      # === Träna modellen ===
+      # Träna modellen 
       - name: Train model
         run: |
           mkdir -p app
           python train.py
 
-      # === Enkla enhetstester ===
       - name: Unit Tests
         run: pytest
 
-      # === Utvärdera modellen (RMSE, precision, recall) ===
+      # Utvärdera modellen 
       - name: Evaluate model
         run: python app/evaluate.py
 
-      # === Ladda upp modellartefakt ===
+      # Ladda upp modellartefakt 
       - name: Upload model artifact
         uses: actions/upload-artifact@v4
         with:
           name: model-artifact
           path: app/model.joblib
 
-      # === Ladda upp metrics.json som artefakt ===
+      # Ladda upp metrics som artefakt 
       - name: Upload metrics
         uses: actions/upload-artifact@v4
         with:
