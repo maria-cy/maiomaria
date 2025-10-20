@@ -24,6 +24,7 @@ The model and service are built, tested, and released automatically using GitHub
 ├─ Dockerfile
 ├─ README.md
 ├─ requirements.txt
+├─test_dummy.py
 └─ train.py
 
 ```
