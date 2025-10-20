@@ -47,12 +47,12 @@ Run command for version 2 (replace “v0.2” with “v0.1” to run iteration 1
 $ docker run -d -p 8000:8000 ghcr.io/maria-cy/maiomaria:v0.2
 ```
 
-GET Health:
+GET /Health:
 ```
 Invoke-RestMethod -Uri http://localhost:8000/health -Method GET
 ```
 
-POST /Predict
+POST /Predict:
 ```
 $body = @{
     age = 0.02
