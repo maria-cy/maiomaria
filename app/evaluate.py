@@ -29,7 +29,7 @@ y_pred = model.predict(X_test_scaled)
 
 rmse = math.sqrt(mean_squared_error(y_test, y_pred))
 
-#High-risk metrics
+# High-risk metrics
 y_test_highrisk = (y_test > np.percentile(y_train, 75)).astype(int)
 y_pred_highrisk = (y_pred > np.percentile(y_train, 75)).astype(int)
 precision = precision_score(y_test_highrisk, y_pred_highrisk)
