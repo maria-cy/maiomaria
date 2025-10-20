@@ -14,11 +14,9 @@ jobs:
       packages: write
 
     steps:
-      # 1. Hämta koden
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Installera Python och beroenden
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -29,11 +27,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 3. Träna modellen direkt i detta workflow
+      # Träna modellen
       - name: Train model
         run: python train.py
 
-      # 4. Logga in till GitHub Container Registry
+      # Logga in till GitHub Container Registry
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -41,17 +39,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # 5. Bygg Docker-imagen (nu med nytränad model.joblib)
+      # Bygg Docker-bilden
       - name: Build Docker image
         run: |
           docker build -t ghcr.io/maria-cy/maiomaria:${GITHUB_REF_NAME} .
 
-      # 6. Ladda upp Docker-imagen till GHCR
+      # Ladda upp Docker-bilden till GHCR
       - name: Push Docker image
         run: |
           docker push ghcr.io/maria-cy/maiomaria:${GITHUB_REF_NAME}
 
-      # 7. Skapa GitHub Release
+      # Skapa GitHub Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
