@@ -5,7 +5,7 @@
 
 - RMSE = 53.85
 
-- prediction = 235,9496372217627 
+- Prediction = 235,9496372217627 
 
 ## V0.2
 
@@ -13,7 +13,7 @@
 
 - This new version features an added risk assessment to help prioritize follow-ups
 
-- prediction risk_assessment = 226,91 High risk patient 
+- Prediction risk_assessment = 226,91 High risk patient 
 
 - Precision: 1.0
 
